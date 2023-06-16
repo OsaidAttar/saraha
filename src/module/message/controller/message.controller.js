@@ -22,7 +22,7 @@ const {messageId}=req.params
 
 const message =await messageModel.deleteOne({_id:messageId,reciverId:id})
 if(message.deletedCount==0){
-    return res.status(400).json({message:"cant delete this message without login"})
+    return res.status(400).json({message:"invalid id message or id user"})
 }
 return res.status(201).json({message:"success"})
 })
