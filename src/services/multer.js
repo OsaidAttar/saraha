@@ -6,12 +6,12 @@ return res.status(400).json({message:"multer error"})
     next()
 }
 }
-function fileUpload(){
+function fileUpload(custumValidation=[]){
     const storage=multer.diskStorage({})
 
 
     function fileFilter(req,file,cb){
-        if(['image/png','image/jpeg','image/gif'].includes(file.mimetype)){
+        if(custumValidation.includes(file.mimetype)){
         
        cb(null,true)
       
